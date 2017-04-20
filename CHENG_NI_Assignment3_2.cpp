@@ -28,6 +28,7 @@ public:
     float Mass() {
         float InvariantMass;
         InvariantMass = sqrt(pow(E, 2) - (pow(px, 2) + pow(py, 2) + pow(pz, 2)));
+        cout<< "Mass:"<<InvariantMass<<endl;
         return InvariantMass;
     }
     
@@ -47,16 +48,16 @@ public:
         float p = sqrt((pow(px, 2) + pow(py, 2) + pow(pz, 2)));
         float theta = acos(pz/p);
         float pT = p*sin(theta);
-        float dp = acos(pT/px);
-        cout<< "Azimuthal Angle:"<<dp <<endl;
-        return dp;
+        float deltaphi = acos(pT/px);
+        cout<< "Azimuthal Angle:"<<deltaphi <<endl;
+        return deltaphi;
     }
     
     //This method takes an argument that is another fourvector and calculate the
     //difference in the pseudorapidity
     float DeltaEta (FourVector other) {
         float deta = abs(Eta() - other.Eta());
-        cout<< "Difference in the pseudorapidity:"<<endl;
+        cout<< "Difference in the pseudorapidity:"<<deta<<endl;
         return abs(Eta() - other.Eta());
     }
     
@@ -68,6 +69,7 @@ int main(int argc, const char * argv[]) {
     FourVector vec1, vec2;
     //call class methods
     vec1.SetFourVector(1, 2, 3, 4);
+    vec2.SetFourVector(6, 7, 8, 9);
     vec1.Mass();
     vec1.Eta();
     vec1.DeltaPhi(vec2);
