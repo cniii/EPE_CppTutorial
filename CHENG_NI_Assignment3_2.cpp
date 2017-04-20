@@ -33,9 +33,9 @@ public:
     
     //This function returns a float that is the pseudorapdity of the fourvector
     float Eta () {
-        float p = (px^2 + py^2 + pz^2)^(1/2);
+        float p = (pow(px, 2) + pow(py, 2) + pow(pz, 2))^(1/2);
         float theta = acos(pz/p);
-        float eta = -ln(tan(theta/2));
+        float eta = -log(tan(theta/2));
         cout<< "pseudorapidity:"<<eta<<endl;
         return eta;
 
@@ -55,7 +55,7 @@ public:
     //This method takes an argument that is another fourvector and calculate the
     //difference in the pseudorapidity
     float DeltaEta (FourVector other) {
-        deta = abs(Eta() - other.Eta());
+        float deta = abs(Eta() - other.Eta());
         cout<< "Difference in the pseudorapidity:"<<endl;
         return abs(Eta() - other.Eta());
     }
