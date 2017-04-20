@@ -37,7 +37,7 @@ public:
         float theta = acos(pz/p);
         float eta = -ln(tan(theta/2));
         cout<< "pseudorapidity:"<<eta<<endl;
-        return 0;
+        return eta;
 
     }
     
