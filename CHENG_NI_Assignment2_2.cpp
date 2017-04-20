@@ -9,7 +9,7 @@ using namespace std;
 int main(int argc, const char * argv[]) {
     ///////////////////////////////////////////////////////////////////////
     //Question #2
-    int numbers[6]; //initialize an array with six entries
+    int numbers[6] = {}; //initialize an array with six entries
     int * p; //initialize a pointer p that is going to point at the int type
     
     //pre: numbers = [0, 0, 0, 0, 0, 0]  => why is not like this?
