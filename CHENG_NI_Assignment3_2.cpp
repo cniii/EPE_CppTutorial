@@ -33,7 +33,7 @@ public:
     
     //This function returns a float that is the pseudorapdity of the fourvector
     float Eta () {
-        float p = (pow(px, 2) + pow(py, 2) + pow(pz, 2))^(1/2);
+        float p = sqrt((pow(px, 2) + pow(py, 2) + pow(pz, 2)));
         float theta = acos(pz/p);
         float eta = -log(tan(theta/2));
         cout<< "pseudorapidity:"<<eta<<endl;
@@ -44,7 +44,7 @@ public:
     //This method takes an argument that is another fourvector and returns the
     //azimuthal angle between their momentum
     float DeltaPhi (FourVector other) {
-        float p = (px^2 + py^2 + pz^2)^(1/2);
+        float p = sqrt((pow(px, 2) + pow(py, 2) + pow(pz, 2)));
         float theta = acos(pz/p);
         float pT = p*sin(theta);
         float dp = acos(pT/px);
