@@ -31,9 +31,12 @@ public:
         return InvariantMass;
     }
     
-    //This function returns a float that is the pseudorapity of the fourvector
+    //This function returns a float that is the pseudorapdity of the fourvector
     float Eta () {
-        cout<< "what's is the pseudorapidity of a partical:("<<endl;
+        float p = (px^2 + py^2 + pz^2)^(1/2);
+        float theta = acos(pz/p);
+        float eta = -ln(tan(theta/2));
+        cout<< "pseudorapidity:"<<eta<<endl;
         return 0;
 
     }
@@ -41,14 +44,19 @@ public:
     //This method takes an argument that is another fourvector and returns the
     //azimuthal angle between their momentum
     float DeltaPhi (FourVector other) {
-        cout<< "HELPP!! what's the azimuthal angle?"<<endl;
-        return 0;
+        float p = (px^2 + py^2 + pz^2)^(1/2);
+        float theta = acos(pz/p);
+        float pT = p*sin(theta);
+        float dp = acos(pT/px);
+        cout<< "Azimuthal Angle:"<<dp <<endl;
+        return dp;
     }
     
     //This method takes an argument that is another fourvector and calculate the
     //difference in the pseudorapidity
     float DeltaEta (FourVector other) {
-        cout<< "smh"<<endl;
+        deta = abs(Eta() - other.Eta());
+        cout<< "Difference in the pseudorapidity:"<<endl;
         return abs(Eta() - other.Eta());
     }
     
